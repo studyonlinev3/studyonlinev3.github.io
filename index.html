@@ -8,7 +8,14 @@
 </head>
 <body>
   <header class="site-header">
-    <h1>學測練習小卡</h1>
+    <div class="brand">
+      <h1>學測練習小卡</h1>
+      <small class="tag">快速複習・記憶單字</small>
+    </div>
+    <nav class="top-nav">
+      <button id="tab-cards" class="tab-btn active">小卡</button>
+      <button id="tab-vocab" class="tab-btn">英文單字</button>
+    </nav>
     <div class="header-controls">
       <div class="user-area" id="user-area">
         <button id="login-btn">假登入</button>
@@ -17,28 +24,40 @@
   </header>
 
   <main class="container">
-    <section class="controls">
-      <label for="subject-select">選擇科目：</label>
-      <select id="subject-select"></select>
+    <section id="cards-section" class="panel">
+      <section class="controls">
+        <label for="subject-select">選擇科目：</label>
+        <select id="subject-select"></select>
 
-      <label for="search-input">搜尋：</label>
-      <input id="search-input" placeholder="輸入關鍵字或重點" />
+        <label for="search-input">搜尋：</label>
+        <input id="search-input" placeholder="輸入關鍵字或重點" />
 
-      <label><input type="checkbox" id="show-starred" /> 只看已加星</label>
+        <label><input type="checkbox" id="show-starred" /> 只看已加星</label>
 
-      <label for="sort-select">排序：</label>
-      <select id="sort-select">
-        <option value="new">最新</option>
-        <option value="old">最舊</option>
-      </select>
+        <label for="sort-select">排序：</label>
+        <select id="sort-select">
+          <option value="new">最新</option>
+          <option value="old">最舊</option>
+        </select>
 
-      <button id="new-card-btn">新增卡片</button>
-      <button id="export-btn">匯出 (JSON)</button>
-      <button id="import-btn">匯入</button>
-      <input id="import-file" type="file" accept="application/json" style="display:none" />
+        <button id="new-card-btn">新增卡片</button>
+        <button id="export-btn">匯出 (JSON)</button>
+        <button id="import-btn">匯入</button>
+        <input id="import-file" type="file" accept="application/json" style="display:none" />
+      </section>
+
+      <section id="cards" class="cards"></section>
     </section>
 
-    <section id="cards" class="cards"></section>
+    <section id="vocab-section" class="panel hidden">
+      <section class="controls">
+        <label for="vocab-search">搜尋單字：</label>
+        <input id="vocab-search" placeholder="輸入單字或中文解釋" />
+        <button id="new-vocab-btn">新增單字</button>
+        <button id="export-vocab-btn">匯出單字 (JSON)</button>
+      </section>
+      <section id="vocab-list" class="cards"></section>
+    </section>
   </main>
 
   <!-- Card Modal (create/edit) -->
@@ -53,6 +72,21 @@
       <div class="modal-actions">
         <button id="card-save">儲存</button>
         <button id="card-cancel">取消</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vocab Modal -->
+  <div id="vocab-modal" class="modal hidden" aria-hidden="true">
+    <div class="modal-content">
+      <h2 id="vocab-modal-title">新增英文單字</h2>
+      <label>單字<input id="vocab-word" /></label>
+      <label>中文解釋<input id="vocab-meaning" /></label>
+      <label>範例句子<input id="vocab-example" /></label>
+      <label>句子翻譯<textarea id="vocab-example-tw"></textarea></label>
+      <div class="modal-actions">
+        <button id="vocab-save">儲存</button>
+        <button id="vocab-cancel">取消</button>
       </div>
     </div>
   </div>
