@@ -26,11 +26,36 @@
 
       <label><input type="checkbox" id="show-starred" /> 只看已加星</label>
 
+      <label for="sort-select">排序：</label>
+      <select id="sort-select">
+        <option value="new">最新</option>
+        <option value="old">最舊</option>
+      </select>
+
       <button id="new-card-btn">新增卡片</button>
+      <button id="export-btn">匯出 (JSON)</button>
+      <button id="import-btn">匯入</button>
+      <input id="import-file" type="file" accept="application/json" style="display:none" />
     </section>
 
     <section id="cards" class="cards"></section>
   </main>
+
+  <!-- Card Modal (create/edit) -->
+  <div id="card-modal" class="modal hidden" aria-hidden="true">
+    <div class="modal-content">
+      <h2 id="card-modal-title">新增重點小卡</h2>
+      <label>科目
+        <select id="card-subject"></select>
+      </label>
+      <label>標題<input id="card-title" /></label>
+      <label>內容<textarea id="card-content"></textarea></label>
+      <div class="modal-actions">
+        <button id="card-save">儲存</button>
+        <button id="card-cancel">取消</button>
+      </div>
+    </div>
+  </div>
 
   <!-- Login Modal -->
   <div id="login-modal" class="modal hidden" aria-hidden="true">
@@ -41,22 +66,6 @@
       <div class="modal-actions">
         <button id="login-submit">登入</button>
         <button id="login-cancel">取消</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- New Card Modal -->
-  <div id="new-card-modal" class="modal hidden" aria-hidden="true">
-    <div class="modal-content">
-      <h2>新增重點小卡</h2>
-      <label>科目
-        <select id="new-card-subject"></select>
-      </label>
-      <label>標題<input id="new-card-title" /></label>
-      <label>內容<textarea id="new-card-content"></textarea></label>
-      <div class="modal-actions">
-        <button id="new-card-save">儲存</button>
-        <button id="new-card-cancel">取消</button>
       </div>
     </div>
   </div>
