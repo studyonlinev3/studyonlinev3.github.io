@@ -23,7 +23,7 @@ body{font-family:Inter, system-ui, -apple-system, 'Noto Sans TC', Roboto, 'Helve
 .controls input, .controls select{padding:8px 10px;border:1px solid #e6eef7;border-radius:8px}
 .controls button{padding:8px 10px;border-radius:8px}
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
-.card{background:var(--card);padding:14px;border-radius:12px;box-shadow:0 6px 18px rgba(11,24,50,0.06);position:relative;transition:transform .12s ease, box-shadow .12s ease}
+.card{background:var(--card);padding:28px 14px 14px 14px;border-radius:12px;box-shadow:0 6px 18px rgba(11,24,50,0.06);position:relative;transition:transform .12s ease, box-shadow .12s ease}
 .card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(11,24,50,0.08)}
 .card h3{margin:0 0 8px 0;font-size:16px}
 .card p{margin:0;color:#0b1220;font-size:14px;white-space:pre-wrap}
